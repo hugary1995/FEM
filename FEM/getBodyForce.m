@@ -8,11 +8,9 @@ for i = 1:Nelem
     C = getElementCoordinates(i, NodalCoord, Connectivity);
     Fe = getElementForce(C, b, thickness);
     node = Connectivity(i,:);
-    dof(1:2:12) = 2*node-1;
-    dof(2:2:12) = 2*node;
-    for p = 1:12
-        Fb(dof(p)) = Fb(dof(p)) + Fe(p);
-    end
+    dof(1:2:2*length(node)) = 2*node-1;
+    dof(2:2:2*length(node)) = 2*node;
+    Fb(dof) = Fb(dof) + Fe;
 end
 
 

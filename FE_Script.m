@@ -9,7 +9,7 @@ libpath();
 % 1: complicated P test
 % 2: patch test
 % 3: method of manufactured solution
-predefined_case = 3;
+predefined_case = 1;
 
 %% get model definition
 if predefined_case == 3
@@ -79,3 +79,42 @@ if predefined_case == 3
     P = polyfit(log(helem),log(L2_error),1);
     title(sprintf('convergence rate = %.4f',P(1)))
 end
+
+%% get covariance matrix
+disp('Assembly covariance matrix...')
+pause(0.01)
+
+L = 0.4;
+sigma = 0.07;
+cov = @(tau) sigma^2*exp(-tau^2/L^2);
+
+G = assembleCovarianceMatrix(NodalCoord,Connectivity,cov);
+
+%% get mass matrix
+disp('Assembly mass matrix...')
+pause(0.01)
+
+M = assembleMassMatrix(NodalCoord,Connectivity);
+
+%% solve generalized eigenvalue problem
+disp('Solving FIE2...')
+pause(0.01)
+
+[V,D] = eig(G,M);
+[d,ind] = sort(diag(D),'descend');
+V = V(:,ind);
+
+%% sample random field
+disp('Sample random field...')
+pause(0.01)
+
+for m = 1:length(d)
+    if 1-sum(d(1:m))/trace(M\G) < 0.05
+        break
+    end
+end
+xi = randn(m,1);
+H = V(:,1:m)*(sqrt(d(1:m)).*xi);
+
+PlotFieldonDefoMesh(NodalCoord,Connectivity,1,0*[dx dy],H,'H')
+axis equal

@@ -2,10 +2,9 @@ function EBCs = defineEBCs(predefined_case)
 if predefined_case == 1
     % complicated P test
     EBCs = {...
-        [NaN 20 1]  @(x,y)1;
-        [NaN 20 2]  @(x,y)-0.1*x;
-        [NaN 0 2]   @(x,y)0;
-        [NaN 0 1]   @(x,y)0};
+        [4 1 1]  @(x,y)0.1;
+        [0 NaN 2]   @(x,y)0;
+        [0 NaN 1]   @(x,y)0};
 else
     if predefined_case == 2
         % patch test

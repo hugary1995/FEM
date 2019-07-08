@@ -20,34 +20,34 @@ PlotFieldonDefoMesh(NodalCoord, Connectivity, scale, [dx dy], dy,'u_y')
 axis equal
 
 
-disp('          plotting xx strain...')
-figure
-PlotFieldonDefoMesh(NodalCoord, Connectivity, scale, [dx dy], strain(:,1),'\epsilon_{xx}')
-axis equal
-
-disp('          plotting yy strain...')
-figure
-PlotFieldonDefoMesh(NodalCoord, Connectivity, scale, [dx dy], strain(:,2),'\epsilon_{yy}')
-axis equal
-
-disp('          plotting xy strain...')
-figure
-PlotFieldonDefoMesh(NodalCoord, Connectivity, scale, [dx dy], strain(:,3),'\epsilon_{xy}')
-axis equal
-
-% plot stress on deformed mesh
-
-disp('          plotting xx stress...')
-figure
-PlotFieldonDefoMesh(NodalCoord, Connectivity, scale, [dx dy], stress(:,1),'\sigma_{xx}')
-axis equal
-
-disp('          plotting yy stress...')
-figure
-PlotFieldonDefoMesh(NodalCoord, Connectivity, scale, [dx dy], stress(:,2),'\sigma_{yy}')
-axis equal
-
-disp('          plotting xy stress...')
-figure
-PlotFieldonDefoMesh(NodalCoord, Connectivity, scale, [dx dy], stress(:,3),'\sigma_{xy}')
-axis equal
+% disp('          plotting xx strain...')
+% figure
+% PlotFieldonDefoMesh(NodalCoord, Connectivity, scale, [dx dy], strain(:,1),'\epsilon_{xx}')
+% axis equal
+% 
+% disp('          plotting yy strain...')
+% figure
+% PlotFieldonDefoMesh(NodalCoord, Connectivity, scale, [dx dy], strain(:,2),'\epsilon_{yy}')
+% axis equal
+% 
+% disp('          plotting xy strain...')
+% figure
+% PlotFieldonDefoMesh(NodalCoord, Connectivity, scale, [dx dy], strain(:,3),'\epsilon_{xy}')
+% axis equal
+% 
+% % plot stress on deformed mesh
+% 
+% disp('          plotting xx stress...')
+% figure
+% PlotFieldonDefoMesh(NodalCoord, Connectivity, scale, [dx dy], stress(:,1),'\sigma_{xx}')
+% axis equal
+% 
+% disp('          plotting yy stress...')
+% figure
+% PlotFieldonDefoMesh(NodalCoord, Connectivity, scale, [dx dy], stress(:,2),'\sigma_{yy}')
+% axis equal
+% 
+% disp('          plotting xy stress...')
+% figure
+% PlotFieldonDefoMesh(NodalCoord, Connectivity, scale, [dx dy], stress(:,3),'\sigma_{xy}')
+% axis equal

@@ -6,7 +6,7 @@ if predefined_case == 1
     rho = 7800;
     g = 9.8;
     b = @(x,y) [0;-rho*g];
-    h = 0.1;
+    h = 1;
 else
     if predefined_case == 2
         % patch test
